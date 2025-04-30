@@ -56,7 +56,11 @@ const DepartmentCard = ({ department, onDelete }: DepartmentCardProps) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="secondary" className="w-full" asChild>
+        <Button
+          variant="secondary"
+          className="w-full underline text-xl"
+          asChild
+        >
           <Link href={`/dashboard/departments/${department.id}`}>
             View Details
           </Link>

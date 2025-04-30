@@ -49,7 +49,11 @@ const SubDepartmentCard = ({
       </CardHeader>
       <CardContent></CardContent>
       <CardFooter>
-        <Button variant="secondary" className="w-full" asChild>
+        <Button
+          variant="secondary"
+          className="w-full underline text-xl"
+          asChild
+        >
           <Link href={`/dashboard/sub-departments/${subDepartment.id}`}>
             View Details
           </Link>
