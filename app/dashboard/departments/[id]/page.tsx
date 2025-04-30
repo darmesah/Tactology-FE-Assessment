@@ -22,6 +22,7 @@ import {
 } from "@/lib/graphql/departments";
 import { REMOVE_SUB_DEPARTMENT } from "@/lib/graphql/subDepartments";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const DepartmentDetails = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = use(params);
@@ -164,11 +165,11 @@ const DepartmentDetails = ({ params }: { params: Promise<{ id: string }> }) => {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold">Sub-Departments</h2>
           <Button asChild variant="outline" size="sm">
-            <a
+            <Link
               href={`/dashboard/sub-departments/create?departmentId=${departmentId}`}
             >
               Add Sub-Department
-            </a>
+            </Link>
           </Button>
         </div>
 
@@ -190,12 +191,12 @@ const DepartmentDetails = ({ params }: { params: Promise<{ id: string }> }) => {
             <p className="text-muted-foreground mb-4">
               This department does not have any sub-departments yet.
             </p>
-            <a
+            <Link
               href={`/dashboard/sub-departments/create?departmentId=${departmentId}`}
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4"
             >
               Add Sub-Department
-            </a>
+            </Link>
           </div>
         )}
       </div>
