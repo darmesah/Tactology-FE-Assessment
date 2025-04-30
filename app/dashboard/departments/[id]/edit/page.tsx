@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { toast } from "sonner";
 import { Card } from "@/components/ui/card";
@@ -9,14 +9,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { GET_DEPARTMENT, UPDATE_DEPARTMENT } from "@/lib/graphql/departments";
 import { useRouter } from "next/navigation";
 
-interface DepartmentDetailsProps {
-  params: {
-    id: string;
-  };
-}
+const EditDepartment = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
+  const departmentId = parseInt(id);
 
-const EditDepartment = ({ params }: DepartmentDetailsProps) => {
-  const departmentId = parseInt(params.id, 10);
   const router = useRouter();
 
   const [isSubmitting, setIsSubmitting] = useState(false);

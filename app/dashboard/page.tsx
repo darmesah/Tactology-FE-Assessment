@@ -114,20 +114,20 @@ const Dashboard = () => {
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col space-y-2">
-            <a
+            <Link
               href="/dashboard/departments/create"
               className="flex items-center rounded-md border px-4 py-3 text-sm hover:bg-accent transition-colors"
             >
               <Building className="mr-2 h-4 w-4" />
               Create a new department
-            </a>
-            <a
+            </Link>
+            <Link
               href="/dashboard/sub-departments/create"
               className="flex items-center rounded-md border px-4 py-3 text-sm hover:bg-accent transition-colors"
             >
               <FolderTree className="mr-2 h-4 w-4" />
               Create a new sub-department
-            </a>
+            </Link>
           </CardContent>
         </Card>
       </div>

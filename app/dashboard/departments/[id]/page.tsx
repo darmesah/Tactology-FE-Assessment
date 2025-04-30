@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { toast } from "sonner";
 import PageHeader from "@/components/ui/PageHeader";
@@ -23,14 +23,9 @@ import {
 import { REMOVE_SUB_DEPARTMENT } from "@/lib/graphql/subDepartments";
 import { useRouter } from "next/navigation";
 
-interface DepartmentDetailsProps {
-  params: {
-    id: string;
-  };
-}
-
-const DepartmentDetails = ({ params }: DepartmentDetailsProps) => {
-  const departmentId = parseInt(params.id, 10);
+const DepartmentDetails = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
+  const departmentId = parseInt(id);
 
   const router = useRouter();
 
